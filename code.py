@@ -4,26 +4,46 @@ reprobados = 0
 aprobados = 0
 sumpromedio = 0
 
-entrada = int(input("¿Cuantos estudiantes desea ingresar al sistema?: "))
+while True:
+    try:
+        entrada = int(input("¿Cuantos estudiantes desea ingresar al sistema?: "))
+        break
+    except ValueError:
+        print("El valor no es valido")
 
 for i in range(entrada):
     
     nombres = input("Ingrese el nombre del estudiante: ")
 
-    nota1 = float(input("Digite la 1ra nota del estudiante: "))
-    while nota1 < 1 or nota1 > 5:
-        print("Ingrese una nota valida (1-5)")
-        nota1 = float(input("Digite la 1ra nota del estudiante: "))
+    while True:
+        try:
+            nota1 = float(input("Digite la 1ra nota del estudiante: "))
+            if 1 <= nota1 <= 5:
+                break
+            else:
+                print ("Ingrese una nota valida 1-5")
+        except ValueError:
+            print("El valor no es valido")
         
-    nota2 = float(input("Digite la 2da nota del estudiante: "))
-    while nota2 < 1 or nota2 > 5:
-        print("Ingrese una nota valida (1-5)")
-        nota2 = float(input("Digite la 2da nota del estudiante: "))
-        
-    nota3 = float(input("Digite la 3ra nota del estudiante: "))
-    while nota3 < 1 or nota3 > 5:
-        print("Ingrese una nota valida (1-5)")
-        nota3 = float(input("Digite la 3ra nota del estudiante: "))
+    while True:
+        try:        
+            nota2 = float(input("Digite la 2da nota del estudiante: "))
+            if 1 <= nota2 <= 5:
+                break
+            else:  
+                print("Ingresa una nota valida 1-5")
+        except ValueError:
+            print("El valor no es valido")
+    
+    while True:
+        try:      
+            nota3 = float(input("Digite la 3ra nota del estudiante: "))
+            if 1 <= nota3 <= 5:
+                break
+            else:
+                print("Ingrese una nota valida 1-5")
+        except ValueError:
+            print("Ingrese un valor valido")
 
     prom = (nota1 + nota2 + nota3) / 3
     print(f"El promedio de {nombres}, es de {prom}")
